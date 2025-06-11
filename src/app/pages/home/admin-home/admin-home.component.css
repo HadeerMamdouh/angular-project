@@ -1,21 +1,19 @@
-/* Custom button using #bddaa5 */
-.custom-green-btn {
-  background-color: #bddaa5;
+.custom-purple-btn {
+  background-color: #9569FC;
   border: none;
   color: #1f1f1f;
   font-weight: 500;
 }
 
-.custom-green-btn:hover {
-  background-color: #aacb90;
+.custom-purple-btn:hover {
+  background-color: #7237FB;
   color: #000;
 }
 
-/* Optional: Card background update */
 .exam-card {
-  background-color: #f8fdf3; /* light version of #bddaa5 */
+  background-color: #EDE6FE;
   border-radius: 1rem;
-  border: 1px solid #ddeac9;
+  border: 1px solid #B89BFD;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

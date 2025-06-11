@@ -1,6 +1,6 @@
 <div class="container mt-4">
-  <div class="card shadow border-0" style="border-left: 5px solid #597b75;">
-    <div class="card-header text-white" style="background-color: #597b75;">
+  <div class="card shadow border-0" style="border-left: 5px solid #B89BFD;">
+    <div class="card-header text-white" style="background-color: #B89BFD;">
       <h5 class="mb-0">Exam Result: {{ result.userName || 'Anonymous' }}</h5>
     </div>
 
@@ -11,20 +11,20 @@
           <div>{{ result.userEmail || 'N/A' }}</div>
         </div>
         <div class="col-md-6">
-          <div class="text-muted small">Date Taken</div>
+          <div class="text-muted small" style="color: #3F04C8">Date Taken</div>
           <div>{{ result.dateTaken | date: 'medium' }}</div>
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-4">
-          <div class="text-muted small">Score</div>
+          <div class="text-muted small" style="color: #3F04C8">Score</div>
           <div>{{ result.score }}</div>
         </div>
         <div class="col-md-4">
           <div class="text-muted small">Status</div>
           <span class="badge px-3 py-2" [ngStyle]="{
-            backgroundColor: result.status === 1 ? '#8fae8f' : '#bddaa5',
+            backgroundColor: result.status === 1 ? '#9569FC' : '#DCCDFE',
             color: '#fff'
           }">
             {{ result.status === 1 ? 'Completed' : 'In-Progress' }}
@@ -32,13 +32,13 @@
         </div>
       </div>
 
-      <h6 class="mt-4 mb-2" style="color: #597b75;">Answers Summary</h6>
+      <h6 class="mt-4 mb-2" style="color: #9C73FC;">Answers Summary</h6>
       <div class="list-group">
         @for (question of examQuestions; track $index) {
           @let userAnswer = getUserAnswer(question.id);
           @if (userAnswer) {
             <div class="list-group-item" [ngStyle]="{
-              'background-color': userAnswer.points > 0 ? '#d4edda' : '#f8d7da',
+              'background-color': userAnswer.points > 0 ? '#EDE6FE' : '#f8d7da',
               border: 'none'
             }">
               <div class="row">

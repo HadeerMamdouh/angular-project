@@ -1,25 +1,25 @@
 <app-navbar></app-navbar>
 <div class="container mt-5">
-  <div class="card shadow" style="border-left: 5px solid #597b75;">
-    <div class="card-header text-white" style="background-color: #597b75;">
+  <div class="card shadow" style="border-left: 5px solid #9569FC;">
+    <div class="card-header text-white" style="background-color: #9569FC;">
       <h4 class="mb-0">Exam Result</h4>
     </div>
 
-    <div class="card-body" style="background-color: #f9fdf9;">
-      <h5 class="fw-bold text-primary">{{ userExamResult.exam.name }}</h5>
+    <div class="card-body" style="background-color: #EDE6FE;">
+      <h5 class="fw-bold text-primary" style="color: #9569FC;">{{ userExamResult.exam.name }}</h5>
 
       <div class="row mb-3">
         <div class="col-md-6">
-          <strong>Score:</strong> <span class="ms-1">{{ userExamResult.score }} pts</span>
+          <strong style="color: #3F04C8;">Score:</strong> <span class="ms-1" style="color: #9569FC;">{{ userExamResult.score }} pts</span>
         </div>
         <div class="col-md-6">
-          <strong>Date Taken:</strong> <span class="ms-1">{{ userExamResult.dateTaken | date:'medium' }}</span>
+          <strong style="color: #3F04C8;">Date Taken:</strong> <span class="ms-1" style="color: #9569FC;">{{ userExamResult.dateTaken | date:'medium' }}</span>
         </div>
       </div>
 
       <div class="row mb-3">
         <div class="col-md-6">
-          <strong>Status:</strong>
+          <strong style="color: #3F04C8;">Status:</strong>
           <span class="ms-2 badge" [ngClass]="{
             'bg-success': userExamResult.status === 1,
             'bg-warning': userExamResult.status === 0
@@ -30,16 +30,16 @@
       </div>
 
       <hr>
-      <h5 class="mb-3" style="color: #597b75;">Your Answers</h5>
+      <h5 class="mb-3" style="color: #9569FC;">Your Answers</h5>
 
       @for (question of examQuestions; track question.id; let i = $index) {
   <div class="card mb-4">
-    <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #bddaa5;">
+    <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #B89BFD;">
       <div><strong>Q{{ i + 1 }}:</strong> {{ question.questionText }}</div>
-      <span class="badge bg-secondary">{{ question.points }} pts</span>
+      <span class="badge" style="background-color: #3F04C8;">{{ question.points }} pts</span>
     </div>
 
-    <div class="card-body" style="background-color: #f4fbf4;">
+    <div class="card-body" style="background-color: #EDE6FE;">
       <div class="mb-2">
         <strong>Your Answer:</strong>
         @if (getUserAnswerChoiceText(question.id)) {
@@ -68,7 +68,7 @@
     </div>
   </div>
 }
-      
+
       <div class="text-end mt-4">
         <button class="btn btn-outline-primary" (click)="goBack()">Back to Dashboard</button>
       </div>

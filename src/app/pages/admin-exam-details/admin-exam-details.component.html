@@ -12,17 +12,17 @@
       <div class="exam-meta">
         <div class="meta-item">
           <mat-icon>timer</mat-icon>
-          <span>{{ currentExam.durationInMinutes }} minutes</span>
+          <span style="color: #7237FB;">{{ currentExam.durationInMinutes }} minutes</span>
         </div>
         <div class="meta-item">
           <mat-icon>star</mat-icon>
-          <span>{{ currentExam.totalPoints }} points total</span>
+          <span style="color: #7237FB;">{{ currentExam.totalPoints }} points total</span>
         </div>
         <div class="meta-item">
           <mat-icon color="{{ currentExam.available ? 'primary' : 'warn' }}">
             {{ currentExam.available ? 'check_circle' : 'cancel' }}
           </mat-icon>
-          <span>{{ currentExam.available ? 'Available' : 'Unavailable' }}</span>
+          <span style="color: #7237FB;">{{ currentExam.available ? 'Available' : 'Unavailable' }}</span>
         </div>
       </div>
     </div>
@@ -31,9 +31,9 @@
     <div class="action-buttons d-flex my-3">
       <button class="btn btn-primary me-auto" (click)="goToResults()">Results</button>
       @if (hasResults) {
-        <span class="fa4-bold text-danger align-self-center me-3">Can't update — exam has answers.</span> 
+        <span class="fa4-bold text-danger align-self-center me-3">Can't update — exam has answers.</span>
       }
-      <button mat-raised-button class="btn btn-success me-2" (click)="goEdit()" [disabled]="hasResults">Edit</button> 
+      <button mat-raised-button class="btn btn-success me-2" (click)="goEdit()" [disabled]="hasResults">Edit</button>
       <button class="btn btn-secondary" (click)="goBack()">Back to Exams</button>
     </div>
 

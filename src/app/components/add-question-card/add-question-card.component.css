@@ -1,7 +1,7 @@
 .question-card {
-  background: white;
+  background: var(--light-color);
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 1, 25, 0.2);
   max-width: 700px;
   margin: 0 auto;
   overflow: hidden;
@@ -12,8 +12,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #8fae8f;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
 .card-header h3 {
@@ -24,7 +24,7 @@
 .close-button {
   background: none;
   border: none;
-  color: white;
+  color: var(--light-color);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0 5px;
@@ -42,7 +42,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .form-group textarea,
@@ -50,9 +50,11 @@
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--accent-3);
   border-radius: 4px;
   font-size: 1rem;
+  background: var(--light-color);
+  color: var(--dark-color);
 }
 
 .form-group textarea {
@@ -70,7 +72,7 @@
 }
 
 .error-message {
-  color: #d32f2f;
+  color: #ff6b6b;
   font-size: 0.8rem;
   margin-top: 5px;
 }
@@ -92,14 +94,14 @@
 
 .cancel-btn {
   background: white;
-  border: 1px solid #ddd;
-  color: #333;
+  border: 1px solid var(--accent-2);
+  color: var(--dark-color);
 }
 
 .submit-btn {
-  background-color: #8fae8f;
-  border: 1px solid #7a9c7a;
-  color: white;
+  background-color: var(--primary-color);
+  border: 1px solid var(--accent-3);
+  color: var(--light-color);
 }
 
 .submit-btn:disabled {
@@ -111,7 +113,7 @@
 .choices-section {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--secondary-color);
 }
 
 .choices-header {
@@ -124,12 +126,12 @@
 .choices-header h4 {
   margin: 0;
   font-size: 1.1rem;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .add-choice-btn {
-  background: #8fae8f;
-  color: white;
+  background: var(--primary-color);
+  color: var(--light-color);
   border: none;
   border-radius: 4px;
   padding: 5px 10px;
@@ -138,7 +140,7 @@
 }
 
 .add-choice-btn:hover {
-  background: #7a9c7a;
+  background: var(--accent-2);
 }
 
 .choices-list {
@@ -156,8 +158,10 @@
 .choice-item input[type="text"] {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--accent-3);
   border-radius: 4px;
+  background: var(--light-color);
+  color: var(--dark-color);
 }
 
 .choice-item input[type="checkbox"] {
@@ -169,7 +173,7 @@
 .remove-choice-btn {
   background: none;
   border: none;
-  color: #d32f2f;
+  color: #ff6b6b;
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0 5px;
@@ -196,14 +200,14 @@ input[type="checkbox"] + .checkbox-label::before {
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2px solid #8fae8f;
+  border: 2px solid var(--primary-color);
   border-radius: 4px;
   vertical-align: middle;
   margin-right: 8px;
 }
 
 input[type="checkbox"]:checked + .checkbox-label::before {
-  background-color: #8fae8f;
+  background-color: var(--primary-color);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
   background-size: 14px;
   background-repeat: no-repeat;
@@ -233,17 +237,17 @@ input[type="checkbox"]:checked + .checkbox-label::before {
   left: 0;
   height: 18px;
   width: 18px;
-  background-color: #fff;
-  border: 2px solid #8fae8f;
+  background-color: var(--light-color);
+  border: 2px solid var(--primary-color);
   border-radius: 4px;
 }
 
 .checkbox-container:hover input ~ .checkmark {
-  background-color: #f1f1f1;
+  background-color: var(--secondary-color);
 }
 
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #8fae8f;
+  background-color: var(--primary-color);
 }
 
 .checkmark:after {

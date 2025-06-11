@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/home">
-      <img src="assets/owling-logo.png" alt="Owling Logo">
-      Owling
+      <img src="assets/profile.png" alt="logo" style="max-height: 200px; border-radius: 50%;">
     </a>
 
     @if (currentUser != null) {
@@ -11,6 +10,7 @@
         <a class="nav-btn home-btn me-2"
             (click)="goHome()"
             >
+            <img src="assets/home.png" alt="" style="height: 24px; width: 24px;" >
             Home
           </a>
 
@@ -19,10 +19,12 @@
           <a class="nav-btn exams-btn me-2"
             (click)="goAvailableExams()"
             >
+            <img src="assets/add.png" alt="" style="height: 24px; width: 24px;" >
             Available Exams
           </a>
           <a class="nav-btn taken-btn"
             (click)="goTakeExams()">
+            <img src="assets/tick.png" alt="" style="height: 24px; width: 24px;" >
             Taken Exams
           </a>
         }
@@ -34,15 +36,18 @@
 
         <!-- User Role Badge -->
         <span class="badge rounded-pill px-3 py-2"
+
               [ngClass]="{
                 'bg-success': currentUser.role === 'Admin',
                 'bg-primary': currentUser.role === 'User'
               }">
+              <img src="assets/user.png" alt="" style="height: 24px; width: 24px;" >
           {{ currentUser.role }}
         </span>
 
         <!-- Logout Button -->
-        <button class="btn btn-outline-danger" (click)="logout()">
+        <button class="nav-btn home-btn me-2" (click)="logout()">
+          <img src="assets/logout.png" alt="" style="height: 24px; width: 24px;" >
           Logout
         </button>
       </div>
