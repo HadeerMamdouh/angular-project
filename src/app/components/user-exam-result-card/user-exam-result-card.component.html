@@ -1,0 +1,69 @@
+<div class="container mt-4">
+  <div class="card shadow border-0" style="border-left: 5px solid #597b75;">
+    <div class="card-header text-white" style="background-color: #597b75;">
+      <h5 class="mb-0">Exam Result: {{ result.userName || 'Anonymous' }}</h5>
+    </div>
+
+    <div class="card-body" style="background-color: #f9fdf9;">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="text-muted small">Email</div>
+          <div>{{ result.userEmail || 'N/A' }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">Date Taken</div>
+          <div>{{ result.dateTaken | date: 'medium' }}</div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <div class="text-muted small">Score</div>
+          <div>{{ result.score }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-muted small">Status</div>
+          <span class="badge px-3 py-2" [ngStyle]="{
+            backgroundColor: result.status === 1 ? '#8fae8f' : '#bddaa5',
+            color: '#fff'
+          }">
+            {{ result.status === 1 ? 'Completed' : 'In-Progress' }}
+          </span>
+        </div>
+      </div>
+
+      <h6 class="mt-4 mb-2" style="color: #597b75;">Answers Summary</h6>
+      <div class="list-group">
+        @for (question of examQuestions; track $index) {
+          @let userAnswer = getUserAnswer(question.id);
+          @if (userAnswer) {
+            <div class="list-group-item" [ngStyle]="{
+              'background-color': userAnswer.points > 0 ? '#d4edda' : '#f8d7da',
+              border: 'none'
+            }">
+              <div class="row">
+                <div class="col-md-2">
+                  <strong>#{{ $index + 1 }}</strong>
+                </div>
+                <div class="col-md-3">
+                  <div class="small text-muted">User Answer</div>
+                  <div>
+                    {{ getChoiceText(question.id, userAnswer.selectedChoiceId) || 'No Answer' }}
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="small text-muted">Correct Answer</div>
+                  <div>{{ getCorrectChoiceText(question.id) }}</div>
+                </div>
+                <div class="col-md-3 text-end">
+                  <div class="small text-muted">Points</div>
+                  <div>{{ userAnswer.points }} / {{ question.points }}</div>
+                </div>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>

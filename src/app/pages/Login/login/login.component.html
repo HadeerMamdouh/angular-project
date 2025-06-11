@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="left-side">
+        <img src="assets/profile.png" alt="Image">
+    </div>
+    <div class="right-side">
+        <h1>Login</h1><br>
+        <form [formGroup]="loginFormGroup" (submit)="logIn()">
+            <app-my-form-field lable="Username" [myFieldController]="getUsernameController"></app-my-form-field>
+            @if (getUsernameController.hasError('minlength') && getUsernameController.touched == true) {
+                <p class="error-message">Username length should be at least 3 characters</p>
+                <br>
+            }
+            @if (getUsernameController.hasError('required') && getUsernameController.touched == true) {
+                <p class="error-message">Username is required</p>
+                <br>
+            }
+            @if (usernameErrorMessage) {
+                <p class="error-message">{{usernameErrorMessage}}</p>
+                <br>
+                <br>
+            }
+
+
+            <app-my-form-field lable="Password" [myFieldController]="getPasswordController" type="password"></app-my-form-field>
+            @if (getPasswordController.hasError('required') && getPasswordController.touched == true) {
+                <p class="error-message">Password is required</p>
+                <br>
+                <br>
+            }
+            @if (passwordErrorMessage) {
+                <p class="error-message">{{passwordErrorMessage}}</p>
+                <br>
+            }
+            <br>
+            <app-my-main-button lable="Login"></app-my-main-button>
+            <br><br>
+            @if (ErrorMessage) {
+                <span class="error-message">
+                    ⚠️ {{ ErrorMessage }}
+                </span>
+            }
+            <br><br>
+            <span>Don't have an account? </span>
+            <app-my-text-button label="Register" path="/register"></app-my-text-button>
+        </form>
+    </div>
+</div>

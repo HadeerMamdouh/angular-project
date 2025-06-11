@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <h2 class="mb-4" style="color: #bddaa5;">Available Exams</h2>
+
+  <div *ngIf="availableExams.length === 0" class="alert alert-info">
+    No available exams found.
+  </div>
+
+  <div *ngIf="availableExams.length > 0">
+    <app-search-bar placeholder="Search by Exam's name" (searchChanged)="filterExams($event)"></app-search-bar>
+
+    <div class="row">
+      @for (exam of filteredAvailableExams; track $index) {
+        <div class="col-md-6 col-lg-4 mb-4">
+          <app-available-exam-card [exam]="exam"></app-available-exam-card>
+        </div>
+      }
+    </div>
+  </div>
+</div>

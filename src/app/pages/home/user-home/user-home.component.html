@@ -1,0 +1,65 @@
+<div class="container my-5">
+  <div class="text-center mb-4">
+    <h1 style="color: #bddaa5;">Welcome to Quiz Craft</h1>
+    <h5 style="color: #bddaa5;">Exam Management System</h5>
+  </div>
+  <br><br>
+
+  <!-- Taken Exams -->
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 style="color: #bddaa5;" class="mb-0">Exam Results</h4>
+      <a class="btn btn-outline-dark btn-sm fw-semibold" 
+        style="border-color: #597b75; color: #bddaa5;" 
+        (click)="goTakeExams()">
+        See more
+        <i class="bi bi-arrow-right ms-1"></i>
+      </a>
+  </div>
+
+  <div *ngIf="takenExamsResult.length === 0" class="alert alert-info">
+    No exam results found.
+  </div>
+
+  <div class="mb-5" *ngIf="takenExamsResult.length > 0">
+    <div class="row">
+      @for (result of takenExamsResult.slice(0, 3); track $index) {
+        <div class="col-md-6 col-lg-4 mb-4">
+          <app-user-result-card [result]="result"></app-user-result-card>
+        </div>
+      }
+    </div>
+  </div>
+
+
+  <hr style="height:4px;background-color:black">
+
+  <!-- Available Exams -->
+  <div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 style="color: #bddaa5;" class="mb-0">Available Exams</h4>
+      <a class="btn btn-outline-dark btn-sm fw-semibold" 
+        style="border-color: #597b75; color: #bddaa5;" 
+        (click)="goAvailableExams()"
+        >
+        See more
+        <i class="bi bi-arrow-right ms-1"></i>
+      </a>
+    </div>
+
+    <div *ngIf="availableExams.length === 0" class="alert alert-info">
+      No exam results found.
+    </div>
+
+
+    <div class="mb-5" *ngIf="availableExams.length > 0">
+      <div class="row">
+        @for (exam of availableExams.slice(0, 3); track $index) {
+          <div class="col-md-6 col-lg-4 mb-4">
+            <app-available-exam-card [exam]="exam"></app-available-exam-card>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

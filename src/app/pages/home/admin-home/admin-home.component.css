@@ -1,0 +1,25 @@
+/* Custom button using #bddaa5 */
+.custom-green-btn {
+  background-color: #bddaa5;
+  border: none;
+  color: #1f1f1f;
+  font-weight: 500;
+}
+
+.custom-green-btn:hover {
+  background-color: #aacb90;
+  color: #000;
+}
+
+/* Optional: Card background update */
+.exam-card {
+  background-color: #f8fdf3; /* light version of #bddaa5 */
+  border-radius: 1rem;
+  border: 1px solid #ddeac9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}

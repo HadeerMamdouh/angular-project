@@ -1,0 +1,116 @@
+<div class="question-card">
+  <div class="card-header">
+    <h3>Question {{groupIndex + 1}}</h3>
+    <button class="close-button" (click)="onDeleting(groupIndex)" aria-label="Delete question">×</button>
+  </div>
+
+  <form [formGroup]="questionFormGroup" class="card-form">
+    <div class="form-group">
+      <label for="questionBody-{{groupIndex}}">Question Text</label>
+      <textarea 
+        id="questionBody-{{groupIndex}}"
+        formControlName="body" 
+        rows="3"
+        placeholder="Enter your question here..."
+        required
+        [class.invalid]="questionFormGroup.get('body')?.invalid && questionFormGroup.get('body')?.touched"></textarea>
+      @if (questionFormGroup.get('body')?.invalid && questionFormGroup.get('body')?.touched) {
+        <div class="error-message">Question text is required</div>
+      }
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="questionPoints-{{groupIndex}}">Points</label>
+        <input 
+          type="number" 
+          id="questionPoints-{{groupIndex}}"
+          formControlName="points" 
+          min="1"
+          max="10"
+          placeholder="1"
+          required
+          [class.invalid]="questionFormGroup.get('points')?.invalid && questionFormGroup.get('points')?.touched">
+        @if (questionFormGroup.get('points')?.invalid && questionFormGroup.get('points')?.touched) {
+          <div class="error-message">
+            {{ questionFormGroup.get('points')?.hasError('required') ? 'Points are required' : 'Minimum 1 point' }}
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="questionType-{{groupIndex}}">Question Type</label>
+        <select 
+          id="questionType-{{groupIndex}}"
+          formControlName="questionType" 
+          required
+          [class.invalid]="questionFormGroup.get('questionType')?.invalid && questionFormGroup.get('questionType')?.touched">
+          <option value="0">Multiple Choice</option>
+          <option value="1">True/False</option>
+        </select>
+        @if (questionFormGroup.get('questionType')?.invalid && questionFormGroup.get('questionType')?.touched) {
+          <div class="error-message">Please select a question type</div>
+        }
+      </div>
+    </div>
+
+    <!-- Choices Section -->
+    <div class="choices-section" *ngIf="questionFormGroup.get('questionType')?.value !== null">
+  <div class="choices-header">
+    <h4>Choices</h4>
+    <button 
+      type="button" 
+      class="add-choice-btn" 
+      *ngIf="questionFormGroup.get('questionType')?.value === '0'"
+      (click)="addChoice()"
+      [disabled]="choicesArray.length >= 4">
+      + Add Choice ({{ choicesArray.length }}/4)
+    </button>
+  </div>
+
+  <div class="choices-list" formArrayName="choices">
+  <div *ngFor="let choice of choicesArray.controls; let i = index" [formGroupName]="i" class="choice-item">
+    <!-- Enhanced Checkbox with label -->
+    <label class="checkbox-container">
+      <input 
+        type="checkbox"
+        formControlName="isCorrect"
+        (change)="onCorrectAnswerChange(i)">
+      <span class="checkmark"></span>
+    </label>
+    
+    <!-- Text input -->
+    <input
+      type="text"
+      formControlName="text"
+      placeholder="Option {{i + 1}}"
+      class="choice-text"
+      [class.invalid]="choice.get('text')?.invalid && choice.get('text')?.touched">
+
+    @if (choice.get('text')?.invalid && choice.get('text')?.touched) {
+      <div class="error-message">Choice text is required</div>
+    }
+    
+    <!-- Remove button -->
+    <button 
+      *ngIf="choicesArray.length > 2"
+      type="button"
+      class="remove-choice"
+      (click)="removeChoice(i)">
+      ×
+    </button>
+  </div>
+</div>
+
+  @if (hasChoiceError) {
+    <div class="error-message">
+      {{ 
+        questionFormGroup.get('questionType')?.value === '1' 
+          ? 'Please select either True or False as the correct answer' 
+          : 'At least one choice must be marked as correct' 
+      }}
+    </div>
+  }
+</div>
+  </form>
+</div>

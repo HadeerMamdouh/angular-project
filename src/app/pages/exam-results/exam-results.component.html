@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<br>
+    <div *ngIf="examResults.length === 0" class="alert alert-info">
+        No results found.
+    </div>
+
+    <div *ngIf="examResults.length > 0">
+
+        <app-search-bar placeholder="Search by username.." (searchChanged)="filterResults($event)"></app-search-bar>
+
+        @for (result of filteredResults; track $index) {
+            <app-user-exam-result-card [result]="result" [examQuestions]="examQuestions"></app-user-exam-result-card>
+        }
+        <br>
+    </div>

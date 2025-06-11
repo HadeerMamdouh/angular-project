@@ -1,0 +1,27 @@
+<div class="container py-4">
+
+  <div class="text-center mb-4">
+    <h1 style="color: #bddaa5;">Welcome to Quiz Craft - Dashboard</h1>
+    <h5 style="color: #bddaa5;">Exam Management System</h5>
+  </div>
+  <br>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0" style="color: #bddaa5;">Available Exams</h2>
+    <button type="button" class="btn custom-green-btn" (click)="goToAddExam()">
+      <i class="bi bi-plus-circle me-1"></i> Add Exam
+    </button>
+  </div>
+  <br>
+
+  <app-search-bar placeholder="Search by Exam's name" (searchChanged)="filterExams($event)"></app-search-bar>
+
+  <div class="row gy-4">
+    @for (exam of filteredExamList; track $index) {
+        <div class="col-md-6 col-lg-4">
+            <app-exam-card [exam]="exam"></app-exam-card>
+        </div>
+    }
+  </div>
+
+</div>

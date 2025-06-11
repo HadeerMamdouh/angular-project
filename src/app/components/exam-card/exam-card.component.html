@@ -1,0 +1,28 @@
+<div class="card exam-card shadow-sm mb-4" (click)="showExamDetails(exam.id)">
+  <div class="card-body">
+    <h5 class="card-title fw-bold text-primary">{{exam.name}}</h5>
+    
+    <div class="row mb-2">
+        <div class="col-6">
+            <small class="text-muted">Created On</small>
+            <p class="mb-1">{{ exam.createDate | date: 'medium' }}</p>
+        </div>
+
+      <div class="col-6">
+        <small class="text-muted">Duration</small>
+        <p class="mb-1">{{exam.durationInMinutes}} mins</p>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-6">
+        <small class="text-muted">Total Points</small>
+        <p class="mb-1">{{exam.totalPoints}}</p>
+      </div>
+      <div class="col-6">
+        <small class="text-muted">Available</small>
+        <p class="mb-1">{{ exam.available ? 'Yes' : 'No' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

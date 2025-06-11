@@ -1,0 +1,128 @@
+
+
+.exam-container {
+  background: #f6f9f6;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .exam-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      color: #597b75;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .delete-icon-btn {
+      background-color: transparent;
+      color: #e57373;
+
+      &:hover {
+        background-color: #fcecec;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .exam-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+    font-size: 14px;
+    flex-wrap: wrap;
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #597b75;
+
+      mat-icon {
+        color: #8fae8f;
+      }
+    }
+  }
+}
+
+
+  .question-card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #bddaa5;
+
+    mat-card-header {
+      background: #8fae8f10;
+      padding: 12px 16px;
+      border-bottom: 1px solid #bddaa5;
+
+      mat-card-title {
+        font-weight: 600;
+        color: #597b75;
+      }
+
+      mat-card-subtitle {
+        color: #8fae8f;
+      }
+    }
+
+    mat-card-content {
+      padding: 16px;
+
+      .question-text {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #444;
+      }
+
+      .choices-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .choice-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .correct-badge {
+            color: #597b75;
+            font-weight: bold;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .true-false-container {
+        .tf-option {
+          display: inline-block;
+          padding: 6px 12px;
+          border-radius: 6px;
+          background-color: #bddaa5;
+          color: #2e443c;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .action-buttons {
+    margin-top: 32px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+}
+

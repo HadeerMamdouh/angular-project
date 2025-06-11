@@ -1,0 +1,8 @@
+  <div class="card border-0 shadow-sm" style="background-color: #bddaa5;">
+    <div class="card-body">
+      <h5 class="card-title text-dark">{{ exam.name }}</h5>
+      <p class="card-text"><strong>Duration:</strong> {{ exam.durationInMinutes }} min</p>
+      <p class="card-text"><strong>Total Points:</strong> {{ exam.totalPoints }}</p>
+      <button class="btn btn-success" (click)="goEnterExam(exam.id)">Enter</button>
+    </div>
+  </div>

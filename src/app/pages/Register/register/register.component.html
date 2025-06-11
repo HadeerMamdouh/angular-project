@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="left-side">
+        <img src="assets/profile.png" alt="Image">
+    </div>
+    <div class="right-side">
+        <h1>Register</h1><br>
+        <form [formGroup]="registerFormGroup" (submit)="register()">
+            <app-my-form-field lable="Username" [myFieldController]="getUsernameController"></app-my-form-field>
+            @if (usernameErrorMessage) {
+                <p class="error-message">{{usernameErrorMessage}}</p>
+                <br>
+            }
+            
+            
+            
+            <app-my-form-field lable="Email" [myFieldController]="getEmailController"></app-my-form-field>
+            
+            @if (emailErrorMessage) {
+                <p class="error-message">{{emailErrorMessage}}</p>
+                <br>
+            }
+            
+            
+            <app-my-form-field lable="Password" [myFieldController]="getPasswordController" type="password"></app-my-form-field>
+            
+            @if (passwordErrorMessage) {
+                <p class="error-message">{{passwordErrorMessage}}</p>
+                <br>
+            }
+
+            
+            
+            <br>
+            <app-my-main-button lable="Register"></app-my-main-button>
+            <br><br>
+            @if (ErrorMessage) {
+                <span class="error-message">
+                    ⚠️ {{ ErrorMessage }}
+                </span>
+            }
+            
+            
+            <br><br>
+            <span>Have an account? </span>
+            <app-my-text-button label="Login" path="/login"></app-my-text-button>
+        </form>
+    </div>
+</div>

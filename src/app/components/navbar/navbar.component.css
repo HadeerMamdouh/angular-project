@@ -1,0 +1,90 @@
+.navbar {
+  background: linear-gradient(90deg, var(--dark-color) 0%, var(--accent-6) 100%) !important;
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 2px 10px rgba(156, 115, 252, 0.3);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  color: var(--light-color) !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+}
+
+.navbar .nav-btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-2) 100%);
+  color: var(--light-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar .nav-btn:hover {
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-3) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(156, 115, 252, 0.4);
+  color: var(--light-color);
+}
+
+.navbar .nav-btn.home-btn {
+  background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-4) 100%);
+}
+
+.navbar .nav-btn.exams-btn {
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--primary-color) 100%);
+}
+
+.navbar .nav-btn.taken-btn {
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-3) 100%);
+}
+
+.navbar .badge {
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-2) 100%);
+  color: var(--light-color);
+  border: 1px solid var(--accent-3);
+}
+
+.navbar .badge.bg-success {
+  background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-4) 100%) !important;
+}
+
+.navbar .badge.bg-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-2) 100%) !important;
+}
+
+.navbar .btn-outline-danger {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-danger:hover {
+  background: #ff6b6b;
+  color: var(--light-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.navbar .text-white {
+  color: var(--light-color) !important;
+}
+
+.navbar .fw-semibold {
+  font-weight: 600;
+}
+

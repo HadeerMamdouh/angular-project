@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+@if (currentExam) {
+  <div class="exam-container mat-elevation-z4">
+
+    <!-- Exam Header Section -->
+    <div class="exam-header">
+      <div class="header-top">
+        <h1>{{ currentExam.name }}</h1>
+        <button mat-raised-button class="btn btn-danger" (click)="deleteExam()">Delete</button>
+      </div>
+
+      <div class="exam-meta">
+        <div class="meta-item">
+          <mat-icon>timer</mat-icon>
+          <span>{{ currentExam.durationInMinutes }} minutes</span>
+        </div>
+        <div class="meta-item">
+          <mat-icon>star</mat-icon>
+          <span>{{ currentExam.totalPoints }} points total</span>
+        </div>
+        <div class="meta-item">
+          <mat-icon color="{{ currentExam.available ? 'primary' : 'warn' }}">
+            {{ currentExam.available ? 'check_circle' : 'cancel' }}
+          </mat-icon>
+          <span>{{ currentExam.available ? 'Available' : 'Unavailable' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons (moved here) -->
+    <div class="action-buttons d-flex my-3">
+      <button class="btn btn-primary me-auto" (click)="goToResults()">Results</button>
+      @if (hasResults) {
+        <span class="fa4-bold text-danger align-self-center me-3">Can't update — exam has answers.</span> 
+      }
+      <button mat-raised-button class="btn btn-success me-2" (click)="goEdit()" [disabled]="hasResults">Edit</button> 
+      <button class="btn btn-secondary" (click)="goBack()">Back to Exams</button>
+    </div>
+
+    <!-- Questions Section -->
+    <div class="questions-container">
+      @for (question of currentExam.questions; track question.id; let i = $index) {
+        <mat-card class="question-card">
+          <mat-card-header>
+            <mat-card-title>
+              Question {{ i + 1 }} ({{ question.points }} pts)
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ getQuestionTypeName(question.questionType) }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="question-text">{{ question.questionText }}</p>
+
+            @if (question.questionType === QuestionType.MCQ) {
+              <div class="choices-container">
+                @for (choice of question.choices; track choice.id) {
+                  <div class="choice-item">
+                    <mat-checkbox [checked]="choice.isCorrect" disabled>
+                      {{ choice.choiceText }}
+                    </mat-checkbox>
+                    @if (choice.isCorrect) {
+                      <span class="correct-badge mat-badge-success">✔</span>
+                    }
+                  </div>
+                }
+              </div>
+            }
+
+            @if (question.questionType === QuestionType.TrueFalse) {
+              <div class="true-false-container">
+                <span class="tf-option" [class.correct]="getCorrectTF(question.choices)">
+                  {{ getCorrectTF(question.choices) ? 'True' : 'False' }}
+                </span>
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </div>
+}

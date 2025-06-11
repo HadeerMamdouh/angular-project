@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+@if (currentUser) {
+    @if(currentUser!.role === 'Admin'){
+        <app-admin-home></app-admin-home>
+    }
+    @else {
+        <app-user-home></app-user-home>
+    }
+}
+<app-footer></app-footer>

@@ -1,0 +1,87 @@
+/* Global Color Variables */
+:root {
+  --primary-color: #9C73FC;
+  --light-color: #EDE6FE;
+  --dark-color: #080119;
+  --secondary-color: #DCCDFE;
+  --accent-1: #B89BFD;
+  --accent-2: #9569FC;
+  --accent-3: #7237FB;
+  --accent-4: #3F04C8;
+  --accent-5: #2F0396;
+  --accent-6: #1F0264;
+  --accent-7: #100132;
+}
+
+body {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--accent-6) 50%, var(--accent-5) 100%) !important;
+    min-height: 100vh;
+}
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    color: var(--light-color);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-2);
+}
+
+/* Global text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--light-color);
+}
+
+p, span {
+    color: var(--light-color);
+}
+
+/* Card styling */
+.card {
+    background: rgba(156, 115, 252, 0.1);
+    border: 1px solid var(--accent-3);
+    backdrop-filter: blur(10px);
+}
+
+.card-header {
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+
+/* Form controls */
+.form-control {
+    background: rgba(237, 230, 254, 0.1);
+    border: 2px solid var(--accent-3);
+    color: var(--light-color);
+}
+
+.form-control:focus {
+    background: rgba(237, 230, 254, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(156, 115, 252, 0.25);
+    color: var(--light-color);
+}
+
+.form-control::placeholder {
+    color: rgba(237, 230, 254, 0.7);
+}
+

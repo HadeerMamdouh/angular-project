@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<form action="" [formGroup]="editExamFormGroup">
+
+    <div class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0" style="color: #bddaa5;">Edit Exam</h1>
+    </div>
+    <br><br>
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="color: #bddaa5;">Exam Data</h3>
+    </div>
+
+    <app-my-form-field lable="Exam Name" [myFieldController]="getExamNameController"></app-my-form-field>
+
+    <app-my-form-field lable="Duration (minutes)" [myFieldController]="getExamDurationController"></app-my-form-field>
+
+    <br><hr><br>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0" style="color: #bddaa5;">Exam Questions </h3><span style="font-size: 18px;color:#bddaa5;">you can add them later</span> 
+    </div>
+
+
+    <br><br>
+    
+        @for (formGroup of examQuestionsFormGroup; track $index) {
+            <app-add-question-card [questionFormGroup]="formGroup" [groupIndex]="$index" (onDeletingQuestionEvent)="deletingQuestion($event)" mode="edit"></app-add-question-card>
+            <br>
+        }
+    
+    <br>
+
+    <div style="text-align: center;" (click)="addingNewQuestion(null)">
+        <app-my-main-button lable="Add Question"></app-my-main-button>
+    </div>
+    
+
+    <br><br>
+
+
+    <div style="text-align: center;" (click)="onSubmitExam()">
+        <app-my-main-button lable="Update" ></app-my-main-button>
+    </div>
+
+    <br>
+
+    @if (submitErrorMessage) {
+        <div class="alert alert-danger text-center" role="alert">
+            {{ submitErrorMessage }}
+        </div>
+    }
+
+    
+
+    </div>
+</form>

@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <h2 class="mb-4" style="color: #bddaa5;">My Exam Results</h2>
+
+  <div *ngIf="takenExamsResult.length === 0" class="alert alert-info">
+    No exam results found.
+  </div>
+
+  <div *ngIf="takenExamsResult.length > 0">
+    <div class="row">
+
+      <app-search-bar placeholder="Search by Exam's name" (searchChanged)="filterResults($event)"></app-search-bar>
+
+      @for (result of filteredExamResults; track $index) {
+        <div class="col-md-6 col-lg-4 mb-4">
+          <app-user-result-card [result]="result"></app-user-result-card>
+        </div>
+      }
+    </div>
+  </div>
+</div>

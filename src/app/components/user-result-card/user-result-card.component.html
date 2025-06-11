@@ -1,0 +1,8 @@
+    <div class="card shadow-sm" style="border-left: 5px solid #597b75;">
+      <div class="card-body" style="background-color: #f9fdf9;">
+        <h5 class="card-title" style="color: #597b75;">{{ result.exam.name }}</h5>
+        <p class="card-text"><strong>Score:</strong> {{ result.score }}</p>
+        <p class="card-text"><strong>Date Taken:</strong> {{ result.dateTaken | date:'longDate' }}</p>
+        <a class="btn btn-outline-primary btn-sm" (click)="goExamResult(result.exam.id)">View Result</a>
+      </div>
+    </div>

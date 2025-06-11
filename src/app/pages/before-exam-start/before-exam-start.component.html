@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+@if (exam) {
+    <div class="container mt-5">
+  <div class="card shadow" style="border-left: 5px solid #597b75;">
+    <div class="card-header text-white" style="background-color: #597b75;">
+      <h4 class="mb-0">Exam Overview</h4>
+    </div>
+    <div class="card-body" style="background-color: #f9fdf9;">
+      <h5 class="mb-3 text-primary fw-bold">{{ exam.name }}</h5>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <strong>Total Points:</strong>
+          <span class="ms-2">{{ exam.totalPoints }}</span>
+        </div>
+        <div class="col-md-6">
+          <strong>Duration:</strong>
+          <span class="ms-2">{{ exam.durationInMinutes }} minutes</span>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <strong>Available:</strong>
+          <span class="ms-2 badge" [ngClass]="exam.available ? 'bg-success' : 'bg-danger'">
+            {{ exam.available ? 'Yes' : 'No' }}
+          </span>
+        </div>
+        <div class="col-md-6">
+          <strong>Created:</strong>
+          <span class="ms-2">{{ exam.createDate | date: 'mediumDate' }}</span>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="alert alert-info mt-4" style="border-left: 4px solid #597b75;">
+        <h6 class="fw-bold" style="color: #597b75;">Instructions:</h6>
+        <ul class="mb-0 ps-3">
+          <li>Try to submit your answers before the time runs out.</li>
+          <li>Do not exit the exam page — re-entry is not allowed.</li>
+          <li>Try not to refresh the exam page — your selected answers will not be saved</li>
+        </ul>
+      </div>
+
+      <hr />
+      <div class="text-end">
+        <button class="btn btn-success" [disabled]="!exam.available" (click)="startExam()">Start Exam</button>
+      </div>
+    </div>
+  </div>
+</div>
+}
