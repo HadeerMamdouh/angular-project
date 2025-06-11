@@ -1,4 +1,55 @@
 # ExamSystem (Angular Project)
+# Owling - Exam Management System
+
+Owling is a web application built with Angular that allows users to take, manage, and review exams efficiently. It features user-friendly UI, result tracking, and exam availability management.
+
+## 🚀 Features
+
+- 📝 Create and take exams
+- 📊 View exam results
+- 📅 See available exams
+- 👤 User-specific result tracking
+
+## 🛠️ Tech Stack
+
+- Angular
+- Bootstrap
+- TypeScript
+- CSS3
+
+## 📸 Screenshots
+
+![Screenshot]
+(assets/splash.png)
+(assets/login.png)
+(assets/home-student.png)
+(assets/exam-results-details.png)
+(assets/available-exam.png)
+(assets/taken-exams.png)
+(assets/before-exam.png)
+(assets/exam.png)
+(assets/admin-home.png)
+(assets/admin-exam-details.png)
+(assets/admin-add-exam.png)
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+ng serve
+
+
+# Contributing Guide
+
+Thank you for considering contributing to this project!
+
+1. Fork the repo
+2. Create a feature branch
+3. Submit a pull request
+
+#-----------------------------------------------------------------------------------------------------------------------------------
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
